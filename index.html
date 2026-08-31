@@ -453,17 +453,18 @@ let noClicks = 0;
 async function sendNotification(isTest = false, eventType = "OPENED") {
     const data = new URLSearchParams();
 
+  
     data.append("access_key", "8bbb5b17-c3eb-43d2-bcdb-1931736093a8");
 
     data.append(
         "from_name",
-        isTest ? "TEST MODE" : "MIMI ON WEBSITE"
+        isTest ? "TEST MODE" : "TEST MODE ON WEBSITE"
     );
 
     data.append(
         "subject",
         isTest
-            ? "🧪 TEST CLICK: Monthsary Website"
+            ? "🧪 TEST MODE : Monthsary Website"
             : eventType === "OPENED"
                 ? "👀 Mimi opened the monthsary website!"
                 : "💖 Mimi clicked YES!"
@@ -472,7 +473,7 @@ async function sendNotification(isTest = false, eventType = "OPENED") {
     data.append(
         "message",
         isTest
-            ? "This was just you testing the monthsary website."
+            ? "Website opened in test mode"
             : eventType === "OPENED"
                 ? "Mimi just opened the monthsary website. 👀❤️"
                 : "Mimi just clicked YES on the monthsary question! 😭❤️"
@@ -503,7 +504,7 @@ async function sendNotification(isTest = false, eventType = "OPENED") {
 
 // Send the opening notification when Mimi enters the site.
 window.addEventListener('load', () => {
-  sendNotification('open');
+    sendNotification(false, "OPENED");
 });
 
 function moveNoButton() {
